@@ -51,7 +51,7 @@ public:
 
         if (position>size)
         {
-            cerr<< "There is no " << position << ". element in the List !"<< endl;
+            cerr<< "There is no " << position << ". element in the Queue !"<< endl;
 
             return false;
         }
@@ -85,7 +85,7 @@ public:
 
         if (position>size)
         {
-            cerr<< "There is no " << position << ". element in the List !" << endl;
+            cerr<< "There is no " << position << ". element in the Queue !" << endl;
 
             return false;
         }
@@ -112,7 +112,7 @@ public:
     {
         if (size ==0)
         {
-            cerr<< "There is not a single element in the List !" << endl;
+            cerr<< "There is not a single element in the Queue !" << endl;
 
             return false;
         }
@@ -183,7 +183,7 @@ public:
             return pulled.value;
         }
         tail.next=tmp;
-       free( (*tmp).next);
+       delete ( (*tmp).next);
         (*tmp).next=&tail;
 
         return pulled.value;
