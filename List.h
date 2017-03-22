@@ -23,6 +23,7 @@ public:
     List()
     {
         head.next=&tail;
+        tail.next=&head;
     }
 
 
@@ -131,6 +132,8 @@ public:
 
     void push()
     {
+
+
         type value;
 
         cout << "enter value of element :" << endl;
@@ -148,6 +151,10 @@ public:
         (*tmp).next= head.next;
         head.next=tmp;
 
+       if(size==0)
+       {
+           tail.next=head.next;
+       }
 
 
 
@@ -155,6 +162,31 @@ public:
         size++;
 
 
+    }
+
+
+    type pull()
+    {
+        cell <type>*tmp=tail.next;
+        cell <type> pulled;
+        pulled.value=(*tmp).value;
+
+        tmp=head.next;
+        for (int i=1;i<size-1;++i)
+        {
+            tmp=(*tmp).next;
+        }
+        if(size==1)
+        {
+            tail.next=&head;
+            free(head.next);
+            return pulled.value;
+        }
+        tail.next=tmp;
+       free( (*tmp).next);
+        (*tmp).next=&tail;
+
+        return pulled.value;
     }
 
     void show()

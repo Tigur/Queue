@@ -4,20 +4,7 @@
 using namespace std;
 
 
-template <class type>
-class Queue
-        :public  List
 
-{
-public:
-
-    cell <int> tail;
-    tail.next= List :: &head;
-};
-/*cell  pull()
-{
-
-}*/
 
 void menu (List <int> & L)
 {
